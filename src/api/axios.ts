@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://socialite-server-azure.vercel.app";
+const baseURL = "https://socialite-server-azure.vercel.app/ap/v1";
 
 export default axios.create({
   baseURL,
