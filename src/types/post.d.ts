@@ -14,6 +14,16 @@ export type TPost = {
   createdAt: Date;
 };
 
+export type TSharePost = {
+  id: string;
+  title: string | null;
+  isLiked: boolean;
+  isSaved: boolean;
+  createdAt: Date;
+  User: TUser;
+  post: TPost;
+};
+
 export type TPostLikes = {
   id: string;
   likersId: string;
@@ -49,14 +59,4 @@ export type TUpdatePostParams = {
   postId: string;
   data: string;
   file: string | ArrayBuffer | null;
-};
-
-export type TSharePost = {
-  id: string;
-  title: string | null;
-  isLiked: boolean;
-  isSaved: boolean;
-  createdAt: Date;
-  User: TUser;
-  post: TPost;
 };

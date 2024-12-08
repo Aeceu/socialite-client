@@ -10,11 +10,7 @@ type ProfileHeaderProps = {
   id: string | undefined;
 };
 
-export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
-  user,
-  id,
-  setUser,
-}) => {
+export const ProfileHeader: React.FC<ProfileHeaderProps> = ({ user, id, setUser }) => {
   return (
     <div className="w-full border-b dark:border-foreground-50 flex items-center justify-center bg-gradient-to-b from-white/20 to-black/30">
       <div className="relative w-3/4 h-[350px] flex flex-col ">
@@ -43,7 +39,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
                     : "https://i.pravatar.cc/150?u=a04258a2462d826712d"
                 }
                 alt="img"
-                className=" relative w-[100px] h-[100px] p-1 border-2 border-blue-500"
+                className=" relative w-[150px] h-[150px] object-cover p-1 border-2 border-blue-500"
                 radius="full"
               />
             )}

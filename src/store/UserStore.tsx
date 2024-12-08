@@ -12,6 +12,7 @@ type State = {
   allSharedPost: TSharePost[];
   userPosts: TPost[];
   userSharedPosts: TSharePost[];
+  feed: (TPost | TSharePost)[];
 };
 
 type Action = {
@@ -25,6 +26,7 @@ type Action = {
   updateOneSharePost: (newSharedPost: TSharePost) => void;
   setUserPosts: (posts: TPost[]) => void;
   setUserSharedPosts: (posts: TSharePost[]) => void;
+  setFeed: (feed: (TPost | TSharePost)[]) => void;
 };
 
 const UserStore = create<State & Action>()(
@@ -51,9 +53,7 @@ const UserStore = create<State & Action>()(
       },
       updateOnePost: (newPost) => {
         set((state) => {
-          const indexOfToUpdate = state.allPosts.findIndex(
-            (item) => item.id === newPost.id
-          );
+          const indexOfToUpdate = state.allPosts.findIndex((item) => item.id === newPost.id);
           const newAllPosts = [...state.allPosts];
 
           if (indexOfToUpdate !== -1) {
@@ -99,6 +99,10 @@ const UserStore = create<State & Action>()(
       userSharedPosts: [],
       setUserSharedPosts: (userSharedPosts) => {
         set({ userSharedPosts });
+      },
+      feed: [],
+      setFeed: (post) => {
+        set({ feed: post });
       },
     }),
     { name: "UserStore" }
